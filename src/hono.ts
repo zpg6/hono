@@ -214,7 +214,7 @@ export class Hono<
         }
         return this.notFoundHandler(c)
       } catch (err) {
-        if (err instanceof Error) {
+        if (err instanceof Error || typeof err === 'object') {
           return this.errorHandler(err, c)
         }
         throw err
